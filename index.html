@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Best Movies</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+  
+<body>
+  <h1>Best Movies</h1>
+  <p>Select a genre to generate 3 movie selections</p>
+  <a href="about.html">See Picture</a>
+  <p><p>
+  <img src="https://cdn.vectorstock.com/i/preview-2x/93/03/clapper-film-movie-icon-design-vector-11739303.webp" alt="Movie Clapper Icon">
+  <script src="script.js"></script>
+  <p></p>
+
+  
+  
+  <label for="genre">Choose your genre from the list:</label>
+  <input list="genres" name="genre" id="genre" onchange="showMovies()">
+
+  <datalist id="genres">
+    <option value="Action">
+    <option value="Comedy">
+    <option value="Drama">
+    <option value="Horror">
+    <option value="Sci-Fi">
+  </datalist>
+
+  <div id="movieList"></div>
+
+  <script>
+    function showMovies() {
+      const genre = document.getElementById('genre').value;
+      const movieList = document.getElementById('movieList');
+      let movies = '';
+
+      if (genre === 'Action') {
+        movies = 'Mad Max: Fury Road, Die Hard, The Dark Knight';
+      } else if (genre === 'Comedy') {
+        movies = 'The Big Lebowski, Superbad, Monty Python and the Holy Grail';
+      } else if (genre === 'Drama') {
+        movies = 'The Godfather, Shawshank Redemption, Schindler\'s List';
+      } else if (genre === 'Horror') {
+        movies = 'The Exorcist, Halloween, A Nightmare on Elm Street';
+      } else if (genre === 'Sci-Fi') {
+        movies = 'Blade Runner, The Matrix, Inception';
+      } else {
+        movies = 'Please select a genre from the list.';
+      }
+
+      movieList.innerHTML = `<p>${movies}</p>`;
+    }
+
+  </script>
+  
+</body>
+
+</html>
